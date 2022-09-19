@@ -1,0 +1,35 @@
+1. El primer error muestra solo valores de objeto, con identificador, 
+no muestra los datos entendibles para el usuario
+
+muestra:
+
+Running Query: SELECT * FROM friends;
+[<friend.Friend object at 0x00000196B70BDA20>, 
+<friend.Friend object at 0x00000196B70BD8A0>, 
+<friend.Friend object at 0x00000196B70BDED0>]
+
+
+2. ahora intento que muestre los datos en cada objeto
+
+primero probe accediendo con la sintaxis de punto, es decir:
+
+    for i in friends:
+      print(i.first_name + " " + i.last_name,flush=True)
+
+de esa forma pude acceder a los elementos como queria, pero como hacerlo en 
+un archivo html directamente, usando la sintaxis de punto
+
+    {%for i in amigos%}
+    <p>{{i.first_name + " "}} {{i.last_name}}</p>
+    {%endfor%}  
+
+funciono..
+
+y probe tambien la sintaxis de los corchetes []
+
+    <p>Amigos</p>
+    {%for i in amigos%}
+      <p>{{i['first_name'] + " "}} {{i['last_name']}}</p>
+    {%endfor%}  
+
+y funciono...
